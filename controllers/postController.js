@@ -1,9 +1,6 @@
-
-const Posts = require('../model/posts');
-
+const Posts = require('../models/posts');
 
 //save post
-
 const savePost = async (req, res) => {
     try {
         const newPost = await Posts.create(req.body);
@@ -16,8 +13,6 @@ const savePost = async (req, res) => {
         });
     }
 };
-
-
 
 //delete post
 const deletePost = async (req, res) => {
@@ -37,6 +32,7 @@ const deletePost = async (req, res) => {
         });
     }
 };
+
 //get all post
 const getAllPosts = async (req, res) => {
     try {
@@ -51,7 +47,7 @@ const getAllPosts = async (req, res) => {
         });
     }
 };
-
+//update a post
 const updatePost = async (req, res) => {
     try {
         const updatedPost = await Posts.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
